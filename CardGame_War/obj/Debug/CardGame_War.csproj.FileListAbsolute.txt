@@ -1,0 +1,9 @@
+c:\users\jake.mcfarland\documents\visual studio 2015\Projects\CardGame_War\CardGame_War\bin\Debug\CardGame_War.exe.config
+C:\Users\Jake.McFarland\Documents\Visual Studio 2015\Projects\CardGame_War\CardGame_War\obj\Debug\CardGame_War.csprojResolveAssemblyReference.cache
+C:\Users\Jake.McFarland\Documents\Visual Studio 2015\Projects\CardGame_War\CardGame_War\obj\Debug\CardGame_War.Form1.resources
+C:\Users\Jake.McFarland\Documents\Visual Studio 2015\Projects\CardGame_War\CardGame_War\obj\Debug\CardGame_War.Properties.Resources.resources
+C:\Users\Jake.McFarland\Documents\Visual Studio 2015\Projects\CardGame_War\CardGame_War\obj\Debug\CardGame_War.csproj.GenerateResource.Cache
+C:\Users\Jake.McFarland\Documents\Visual Studio 2015\Projects\CardGame_War\CardGame_War\bin\Debug\CardGame_War.exe
+C:\Users\Jake.McFarland\Documents\Visual Studio 2015\Projects\CardGame_War\CardGame_War\bin\Debug\CardGame_War.pdb
+C:\Users\Jake.McFarland\Documents\Visual Studio 2015\Projects\CardGame_War\CardGame_War\obj\Debug\CardGame_War.exe
+C:\Users\Jake.McFarland\Documents\Visual Studio 2015\Projects\CardGame_War\CardGame_War\obj\Debug\CardGame_War.pdb
