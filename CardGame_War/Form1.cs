@@ -248,8 +248,11 @@ namespace CardGame_War
                         int x = 0;
                         foreach (var card in warDeck)
                         {
-                            player1.Add(warDeck[x]);
-                            lstPlayer1Cards.Items.Add(warDeck[x]);
+                            if(card != "")
+                            { 
+                                player1.Add(warDeck[x]);
+                                lstPlayer1Cards.Items.Add(warDeck[x]);
+                            }
                             x++;
                         }
 
@@ -262,7 +265,14 @@ namespace CardGame_War
                     lblP1Score.Text = player1Score.ToString();
                     lblP2Score.Text = player2Score.ToString();
                     lblP1Card.Text = player1.First().ToString();
-                    lblP2Card.Text = player2.First().ToString();
+                    if(player2.Count > 0)
+                    { 
+                        lblP2Card.Text = player2.First().ToString();
+                    }
+                    else
+                    {
+                        lblP2Card.Text = "No more cards!";
+                    }
                 }
                 else if (p2Card > p1Card)           //player2 wins card
                 {
@@ -298,8 +308,11 @@ namespace CardGame_War
                         int x = 0;
                         foreach (var card in warDeck)
                         {
-                            player2.Add(warDeck[x]);
-                            lstPlayer2Cards.Items.Add(warDeck[x]);
+                            if(card != "")
+                            {
+                                player2.Add(warDeck[x]);
+                                lstPlayer2Cards.Items.Add(warDeck[x]);
+                            }
                             x++;
                         }
 
@@ -311,22 +324,43 @@ namespace CardGame_War
                     //updates score labels and next dueling cards
                     lblP2Score.Text = player2Score.ToString();
                     lblP1Score.Text = player1Score.ToString();
-                    lblP1Card.Text = player1.First().ToString();
                     lblP2Card.Text = player2.First().ToString();
+                    if (player1.Count > 0)
+                    {
+                        lblP1Card.Text = player1.First().ToString();
+                    }
+                    else
+                    {
+                        lblP1Card.Text = "No more cards!";
+                    }
                 }
                 else
                 {
                     //moves cards aside until a winner is declared
-                    string[] array = new string[2];
+                    string[] array = new string[4];
                     array[0] = player1.First().ToString();
                     array[1] = player2.First().ToString();
-                    WarBattle(array);
+                    if(player1.Count > 1)
+                    {
+                        array[2] = player1[1].ToString();
+                    }
+                    if(player2.Count > 1)
+                    {
+                        array[3] = player2[1].ToString();
+                    }
 
                     //removes cards from each player's deck to avoid duplicates
                     player1 = player1.Where(p => p != player1.First()).ToList();
                     lstPlayer1Cards.Items.RemoveAt(0);
                     player2 = player2.Where(p => p != player2.First()).ToList();
                     lstPlayer2Cards.Items.RemoveAt(0);
+                    player1 = player1.Where(p => p != player1.First()).ToList();
+                    lstPlayer1Cards.Items.RemoveAt(0);
+                    player2 = player2.Where(p => p != player2.First()).ToList();
+                    lstPlayer2Cards.Items.RemoveAt(0);
+
+                    WarBattle(array);
+
 
                     //updates next dueling cards
                     lblP1Card.Text = player1.First().ToString();

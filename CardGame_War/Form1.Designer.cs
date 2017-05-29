@@ -195,7 +195,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(300, 191);
+            this.label7.Location = new System.Drawing.Point(256, 191);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 13);
             this.label7.TabIndex = 12;
@@ -204,7 +204,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(520, 191);
+            this.label8.Location = new System.Drawing.Point(541, 191);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(73, 13);
             this.label8.TabIndex = 13;
@@ -213,7 +213,7 @@
             // lblP1Card
             // 
             this.lblP1Card.AutoSize = true;
-            this.lblP1Card.Location = new System.Drawing.Point(328, 208);
+            this.lblP1Card.Location = new System.Drawing.Point(283, 208);
             this.lblP1Card.Name = "lblP1Card";
             this.lblP1Card.Size = new System.Drawing.Size(13, 13);
             this.lblP1Card.TabIndex = 14;
@@ -222,7 +222,7 @@
             // lblP2Card
             // 
             this.lblP2Card.AutoSize = true;
-            this.lblP2Card.Location = new System.Drawing.Point(551, 208);
+            this.lblP2Card.Location = new System.Drawing.Point(569, 208);
             this.lblP2Card.Name = "lblP2Card";
             this.lblP2Card.Size = new System.Drawing.Size(13, 13);
             this.lblP2Card.TabIndex = 15;
@@ -248,7 +248,7 @@
             // lblWinner
             // 
             this.lblWinner.AutoSize = true;
-            this.lblWinner.Location = new System.Drawing.Point(393, 208);
+            this.lblWinner.Location = new System.Drawing.Point(418, 208);
             this.lblWinner.Name = "lblWinner";
             this.lblWinner.Size = new System.Drawing.Size(0, 13);
             this.lblWinner.TabIndex = 18;
