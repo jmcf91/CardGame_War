@@ -277,7 +277,7 @@
             this.Controls.Add(this.lblPlayer1Deck);
             this.Controls.Add(this.btnDeal);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "War Card Game";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
