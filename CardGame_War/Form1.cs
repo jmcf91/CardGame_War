@@ -129,12 +129,10 @@ namespace CardGame_War
         //assigns cards to the War Deck array
         private void WarBattle(string[] array)
         {
-            int i = 0;
             foreach (var card in array)
             {
-                warDeck.Add(array[i]);
-                lstWarCards.Items.Add(array[i]);
-                i++; 
+                warDeck.Add(card);
+                lstWarCards.Items.Add(card);
             }
         }
 
@@ -179,7 +177,7 @@ namespace CardGame_War
                 {
                     p1 = player1.First().Split(' ')[0].ToString();      //finds the "face" within the object in order to assign value
 
-                    switch (p1)
+                    switch (p1)             //assigns a numeric value for the face card
                     {
                         case "A":
                             p1Card = 14;    //ace
@@ -243,6 +241,7 @@ namespace CardGame_War
                             break;
                     }
 
+                    //**CASE STATEMENT MORE EFFICIENT**
                     //if (p2 == "A")
                     //{
                     //    p2Card = 14;
@@ -289,18 +288,16 @@ namespace CardGame_War
                     {
                         lstWarCards.Items.Clear();
 
-                        player1Score += warDeck.Count() / 2;
-                        player2Score -= warDeck.Count() / 2;
+                        player1Score += warDeck.Count() / 2;      //the winning player essentially only gains half of the cards in the war deck because they never truly lost their own cards
+                        player2Score -= warDeck.Count() / 2;      //the losing player loses only their cards
 
-                        int x = 0;
                         foreach (var card in warDeck)
                         {
                             if(card != "")
                             { 
-                                player1.Add(warDeck[x]);
-                                lstPlayer1Cards.Items.Add(warDeck[x]);
+                                player1.Add(card);
+                                lstPlayer1Cards.Items.Add(card);
                             }
-                            x++;
                         }
 
                         warDeck.Clear();
@@ -312,7 +309,7 @@ namespace CardGame_War
                     lblP1Score.Text = player1Score.ToString();
                     lblP2Score.Text = player2Score.ToString();
                     lblP1Card.Text = player1.First().ToString();
-                    if(player2.Count > 0)
+                    if(player2.Count > 0)   //if the player still has cards, show the first card as the dueling card
                     { 
                         lblP2Card.Text = player2.First().ToString();
                     }
@@ -348,19 +345,16 @@ namespace CardGame_War
                         //clear war cards listbox
                         lstWarCards.Items.Clear();
 
-                        //subtracts one from the count because technically the card(s) was never lost
                         player2Score += warDeck.Count() / 2;
                         player1Score -= warDeck.Count() / 2;
 
-                        int x = 0;
                         foreach (var card in warDeck)
                         {
                             if(card != "")
                             {
-                                player2.Add(warDeck[x]);
-                                lstPlayer2Cards.Items.Add(warDeck[x]);
+                                player2.Add(card);
+                                lstPlayer2Cards.Items.Add(card);
                             }
-                            x++;
                         }
 
                         warDeck.Clear();
@@ -396,7 +390,7 @@ namespace CardGame_War
                         array[3] = player2[1].ToString();
                     }
 
-                    //removes cards from each player's deck to avoid duplicates
+                    /* removes 2 cards from each player's deck, but not their score because this is a tie. */
                     player1 = player1.Where(p => p != player1.First()).ToList();
                     lstPlayer1Cards.Items.RemoveAt(0);
                     player2 = player2.Where(p => p != player2.First()).ToList();
@@ -406,6 +400,7 @@ namespace CardGame_War
                     player2 = player2.Where(p => p != player2.First()).ToList();
                     lstPlayer2Cards.Items.RemoveAt(0);
 
+                    //sends cards to the war deck array
                     WarBattle(array);
 
 
