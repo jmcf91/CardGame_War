@@ -97,10 +97,10 @@ namespace CardGame_War
             //initializes new deck object
             string[] deck = Deck();
 
-            //calls dealer function
+            //calls deal function with created deck
             DealCards(deck);
 
-            //for loops to populate each player's list of cards
+            //for loops to populate each player's list of cards.
             for(int i = 0; i < 26; i++)
             { 
                 lstPlayer1Cards.Items.Add(player1[i].ToString());
@@ -177,23 +177,44 @@ namespace CardGame_War
                 }
                 else            //if card is face card, numeric value must be assigned
                 {
-                    p1 = player1.First().Split(' ')[0].ToString();      //finds the letter within the object in order to assign value
-                    if (p1 == "A")
+                    p1 = player1.First().Split(' ')[0].ToString();      //finds the "face" within the object in order to assign value
+
+                    switch (p1)
                     {
-                        p1Card = 14;
+                        case "A":
+                            p1Card = 14;    //ace
+                            break;
+
+                        case "K":
+                            p1Card = 13;    //king
+                            break;
+
+                        case "Q":
+                            p1Card = 12;    //queen
+                            break;
+
+                        case "J":
+                            p1Card = 11;    //jack
+                            break;
                     }
-                    else if (p1 == "K")
-                    {
-                        p1Card = 13;
-                    }
-                    else if (p1 == "Q")
-                    {
-                        p1Card = 12;
-                    }
-                    else
-                    {
-                        p1Card = 11;
-                    }
+
+                    //**CASE STATEMENT MORE EFFICIENT**
+                    //if (p1 == "A")
+                    //{
+                    //    p1Card = 14;
+                    //}
+                    //else if (p1 == "K")
+                    //{
+                    //    p1Card = 13;
+                    //}
+                    //else if (p1 == "Q")
+                    //{
+                    //    p1Card = 12;
+                    //}
+                    //else
+                    //{
+                    //    p1Card = 11;
+                    //}
                 }
 
                 if (p2 != "")
@@ -203,22 +224,41 @@ namespace CardGame_War
                 else
                 {
                     p2 = player2.First().Split(' ')[0].ToString();
-                    if (p2 == "A")
+                    switch (p2)
                     {
-                        p2Card = 14;
+                        case "A":
+                            p2Card = 14;
+                            break;
+
+                        case "K":
+                            p2Card = 13;
+                            break;
+
+                        case "Q":
+                            p2Card = 12;
+                            break;
+
+                        case "J":
+                            p2Card = 11;
+                            break;
                     }
-                    else if (p2 == "K")
-                    {
-                        p2Card = 13;
-                    }
-                    else if (p2 == "Q")
-                    {
-                        p2Card = 12;
-                    }
-                    else
-                    {
-                        p2Card = 11;
-                    }
+
+                    //if (p2 == "A")
+                    //{
+                    //    p2Card = 14;
+                    //}
+                    //else if (p2 == "K")
+                    //{
+                    //    p2Card = 13;
+                    //}
+                    //else if (p2 == "Q")
+                    //{
+                    //    p2Card = 12;
+                    //}
+                    //else
+                    //{
+                    //    p2Card = 11;
+                    //}
                 }
 
                 if (p1Card > p2Card)        //player1 wins the card
