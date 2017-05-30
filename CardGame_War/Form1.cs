@@ -87,7 +87,20 @@ namespace CardGame_War
                 lstPlayer1Cards.Items.Clear();
                 player1Score = 26;
             }
+            else    //logic for a loss
+            {
+                player1.Clear();
+                lstPlayer1Cards.Items.Clear();
+                player1Score = 26;
+            }
+
             if (lstPlayer2Cards.Items.Count > 1 && player2.Count > 1)
+            {
+                player2.Clear();
+                lstPlayer2Cards.Items.Clear();
+                player2Score = 26;
+            }
+            else
             {
                 player2.Clear();
                 lstPlayer2Cards.Items.Clear();
