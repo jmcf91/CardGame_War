@@ -24,49 +24,54 @@ namespace CardGame_War
 
         static List<string> warDeck = new List<string>();
 
-        static int player1Score = 26;
-        static int player2Score = 26;
+        static int player1Score = 26;   //same as player1.Count()
+        static int player2Score = 26;   //same as player2.Count()
 
+        //creates deck of 52 cards with all four suits
         public static string[] Deck()
         {
             //creates temp deck of 52 cards with each suite and value
             List<string> tempDeck = new List<string>();
-            string[] suite = { "H", "D", "S", "C" };
+            string[] suits = { "H", "D", "S", "C" };
             string[] value = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K" };
             int i;
             int j;
-            //suite loop
+            //suits loop
             for (i = 0; i < 4; i++)
             {
                 //values loop
                 for (j = 0; j < 13; j++)
                 {
-                    tempDeck.Add(value[j] + " " + suite[i]);
+                    tempDeck.Add(value[j] + " " + suits[i]);
                 }
             }
 
+            //assigns tempDeck to the actual deck that will be dealt to players
             string[] deck = tempDeck.ToArray();
             return deck;
         }
 
+        //deals cards from deck to each player
         static void DealCards(string[] deck)
         {
             int j = 0;
             int x = 0;
 
             int randomDraw = r.Next(0, 52); //gets a random number between 0 and 52
-
+            
+            //player 1 deck
             while (j < 26)
             {
-                randomDraw = r.Next(0, deck.Count() - 1);
+                randomDraw = r.Next(0, deck.Count() - 1);   //gets a random number between 0 and the amount of cards left in deck
                 player1.Add(deck[randomDraw]);
                 j++;
                 deck = deck.Where(c => c != deck[randomDraw]).ToArray();
             }
 
+            //player 2 deck
             while (x < 26)
             {
-                randomDraw = r.Next(0, deck.Count() - 1);
+                randomDraw = r.Next(0, deck.Count() - 1);  //minus 1 is there to prevent OutofIndexRange Error
                 player2.Add(deck[randomDraw]);
                 x++;
                 deck = deck.Where(c => c != deck[randomDraw]).ToArray();
@@ -116,8 +121,12 @@ namespace CardGame_War
 
             //clears out label text
             lblWinner.Text = "";
+
+            //enables Battle button if a player has won a game and it became disabled
+            btnBattle.Enabled = true;
         }
 
+        //assigns cards to the War Deck array
         private void WarBattle(string[] array)
         {
             int i = 0;
@@ -131,35 +140,33 @@ namespace CardGame_War
 
         private void btnBattle_Click(object sender, EventArgs e)
         {
+            /*
+             * clicking the Battle button compares the first values in each player's list.
+             */
             int p1Card = 0;
             int p2Card = 0;
-            bool tF = true;
+            bool tF = true;  //quick way to prevent card comparison and unnecessary error
 
-            if (player1.Count() == 52 || player2.Count() == 52)
-            {
-                btnBattle.Enabled = false;
-                tF = false;
-            }
-
-            if (player1.Count() == 0 && player2.Count() == 0)
+            if (player1.Count() == 0 && player2.Count() == 0)   //prevents error and informs player that they must draw cards
             {
                 lblWinner.Text = "Please click Draw Cards.";
                 tF = false;
             }
 
-            if (player1Score == 52)
+            if (player1Score == 52)     //player 1 wins.
             {
+                btnBattle.Enabled = false;
                 lblWinner.Text = "Player 1 wins the game! Click the Draw Cards button to start another game.";
                 tF = false;
-
             }
-            else if (player2Score == 52)
+            else if (player2Score == 52)  //player 2 wins.
             {
+                btnBattle.Enabled = false;
                 lblWinner.Text = "Player 2 wins the game! Click the Draw Cards button to start another game.";
                 tF = false;
             }
 
-            if (tF == true)
+            if (tF == true)     //ensures that the game ends before attempting to process the card value
             {
                 string p1 = Regex.Match(player1.First().ToString(), @"\d+").Value;      //finds int value of card
                 string p2 = Regex.Match(player2.First().ToString(), @"\d+").Value;
@@ -340,7 +347,7 @@ namespace CardGame_War
                     string[] array = new string[4];
                     array[0] = player1.First().ToString();
                     array[1] = player2.First().ToString();
-                    if(player1.Count > 1)
+                    if(player1.Count > 1)       //prevents overdrawing and erroring out
                     {
                         array[2] = player1[1].ToString();
                     }
