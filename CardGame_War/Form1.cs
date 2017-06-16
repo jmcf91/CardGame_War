@@ -208,24 +208,6 @@ namespace CardGame_War
                             p1Card = 11;    //jack
                             break;
                     }
-
-                    //**CASE STATEMENT MORE EFFICIENT**
-                    //if (p1 == "A")
-                    //{
-                    //    p1Card = 14;
-                    //}
-                    //else if (p1 == "K")
-                    //{
-                    //    p1Card = 13;
-                    //}
-                    //else if (p1 == "Q")
-                    //{
-                    //    p1Card = 12;
-                    //}
-                    //else
-                    //{
-                    //    p1Card = 11;
-                    //}
                 }
 
                 if (p2 != "")
@@ -253,24 +235,6 @@ namespace CardGame_War
                             p2Card = 11;
                             break;
                     }
-
-                    //**CASE STATEMENT MORE EFFICIENT**
-                    //if (p2 == "A")
-                    //{
-                    //    p2Card = 14;
-                    //}
-                    //else if (p2 == "K")
-                    //{
-                    //    p2Card = 13;
-                    //}
-                    //else if (p2 == "Q")
-                    //{
-                    //    p2Card = 12;
-                    //}
-                    //else
-                    //{
-                    //    p2Card = 11;
-                    //}
                 }
 
                 if (p1Card > p2Card)        //player1 wins the card
